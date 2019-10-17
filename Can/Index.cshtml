@@ -1,0 +1,42 @@
+﻿@page
+@model Sweets.practice.Pages.Can.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Candy[0].CN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candy[0].CF)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Candy) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CF)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.CID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.CID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,54 @@
+﻿@page
+@model Sweets.practice.Pages.Own.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Owners[0].OL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Owners[0].ON)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Owners[0].Can)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Owners[0].candystoreS)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Owners) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ON)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Can.CID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.candystoreS.CSID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.OID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.OID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.OID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
